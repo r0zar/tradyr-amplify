@@ -1,0 +1,21 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-tradyr-amplify-dev-94036-authRole",
+            "UnauthRoleArn": "arn:aws:iam::144504656881:role/amplify-tradyr-amplify-dev-94036-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::144504656881:role/amplify-tradyr-amplify-dev-94036-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-tradyr-amplify-dev-94036-deployment",
+            "UnauthRoleName": "amplify-tradyr-amplify-dev-94036-unauthRole",
+            "StackName": "amplify-tradyr-amplify-dev-94036",
+            "StackId": "arn:aws:cloudformation:us-east-1:144504656881:stack/amplify-tradyr-amplify-dev-94036/bf4ef440-fd7e-11e9-be18-121fa677fe9a"
+        },
+        "categories": {
+            "auth": {
+                "tradyramplifyb6e7cbdc": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"796522974139223\",\"client_secret\":\"8577bf7322873692f568b829a089a2d1\"}]"
+                }
+            }
+        }
+    }
+}

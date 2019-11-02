@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"tradyramplifyb6e7cbdc": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
