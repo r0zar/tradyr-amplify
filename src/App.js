@@ -1,9 +1,23 @@
 import React from 'react';
 import './App.css';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import ImageIcon from '@material-ui/icons/Image';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: '100%',
+    maxWidth: 360,
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
 
 window.extAsyncInit = function() {
   // the Messenger Extensions JS SDK is done loading 
@@ -13,21 +27,32 @@ window.extAsyncInit = function() {
 };
 
 function App() {
+  const classes = useStyles();
   return (
     <React.Fragment>
-      <CssBaseline />
       <Container maxWidth="sm">
         <Typography component="div">
-          <Box color="primary.main">primary.main</Box>
-          <Box color="primary.main">primary.main</Box>
-          <Box color="primary.main">primary.main</Box>
-          <Box color="primary.main">primary.main</Box>
-          <Box color="primary.main">primary.main</Box>
-          <Box color="text.primary">text.primary</Box>
-          <Box color="text.primary">text.primary</Box>
-          <Box color="text.primary">text.primary</Box>
-          <Box color="text.primary">text.primary</Box>
-          <Box color="text.primary">text.primary</Box>
+        <List component="nav" className={classes.root} aria-label="mailbox folders">
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar>
+                <ImageIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Photos" secondary="Jan 9, 2014" />
+          </ListItem>
+          <Divider />
+          <ListItem divider>
+            <ListItemText primary="Drafts" />
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="Trash" />
+          </ListItem>
+          <Divider light />
+          <ListItem>
+            <ListItemText primary="Spam" />
+          </ListItem>
+        </List>
           {/* <Box color="secondary.main">secondary.main</Box>
           <Box color="error.main">error.main</Box>
           <Box color="text.primary">text.primary</Box>
