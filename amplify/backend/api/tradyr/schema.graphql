@@ -1,0 +1,14 @@
+type Trade @model {
+  id: ID!
+  buyerId: ID
+  sellerId: ID
+  score: String
+  price: String
+  tickets: [Ticket] @connection(name: "TradeTickets")
+}
+type Ticket @model {
+  id: ID!
+  url: String
+  previewUrl: String
+  trade: Trade @connection(name: "TradeTickets")
+}

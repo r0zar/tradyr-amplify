@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "tradyr",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authtradyramplifyb6e7cbdc",
+            "Outputs.UserPoolId"
+        ]
+    }
+}
