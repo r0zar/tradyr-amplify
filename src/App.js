@@ -48,18 +48,18 @@ class App extends Component {
         <ResponsiveContext.Consumer>
           {size => (
             <Box fill>
-              <AppBar>
+              {/* <AppBar>
                 <Heading level='3' margin='none'>My App</Heading>
                 <Button
                   icon={<Notification />}
                   onClick={() => this.setState(prevState => ({ showSidebar: !prevState.showSidebar }))}
                 />
-              </AppBar>
+              </AppBar> */}
               <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
                 <Box flex align='center' justify='center'>
                   <Upload />
                 </Box>
-                  {(!showSidebar || size !== 'small') ? (
+                  {/* {(!showSidebar || size !== 'small') ? (
                     <Collapsible direction="horizontal" open={showSidebar}>
                       <Box
                         flex
@@ -95,7 +95,7 @@ class App extends Component {
                         sidebar
                       </Box>
                     </Layer>
-                  )}
+                  )} */}
               </Box>
             </Box>
           )}

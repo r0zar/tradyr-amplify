@@ -1,7 +1,6 @@
 .Upload {
   display: flex;
   flex-direction: column;
-  flex: 1;
   align-items: flex-start;
   text-align: left;
   overflow: hidden;
@@ -9,7 +8,7 @@
 
 .Content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding-top: 16px;
   box-sizing: border-box;
   width: 100%;
@@ -27,7 +26,7 @@
   display: flex;
   flex: 1;
   width: 100%;
-  align-items: flex-end;
+  align-items: stretch;
   flex-direction: column;
   margin-top: 32px;
 }
