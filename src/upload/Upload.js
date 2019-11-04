@@ -56,7 +56,8 @@ export default class Upload extends Component {
           Clear
         </button>
       );
-    } else {
+    }
+    if (this.state.files.length > 0) {
       return (
         <button
           disabled={this.state.files.length < 0 || this.state.uploading}
@@ -132,7 +133,7 @@ export default class Upload extends Component {
               disabled={this.state.uploading || this.state.successfullUploaded}
             />
           </div>
-          <div className="Files">
+          {/* <div className="Files">
             {this.state.files.map(file => {
               return (
                 <div key={file.name} className="Row">
@@ -141,7 +142,7 @@ export default class Upload extends Component {
                 </div>
               );
             })}
-          </div>
+          </div> */}
         </div>
         <div className="Actions">{this.renderActions()}</div>
       </div>
