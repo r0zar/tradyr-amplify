@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Dropzone from '../dropzone/Dropzone'
 import Progress from '../progress/Progress'
 import './Upload.css'
+const axios = require('axios');
 
 export default class Upload extends Component {
   constructor(props) {
@@ -85,41 +86,27 @@ export default class Upload extends Component {
     }
   }
 
-  sendRequest(file) {
-    return new Promise((resolve, reject) => {
-     const req = new XMLHttpRequest();
-   
-     req.upload.addEventListener("progress", event => {
-      if (event.lengthComputable) {
-       const copy = { ...this.state.uploadProgress };
-       copy[file.name] = {
-        state: "pending",
-        percentage: (event.loaded / event.total) * 100
-       };
-       this.setState({ uploadProgress: copy });
-      }
-     });
-      
-     req.upload.addEventListener("load", event => {
-      const copy = { ...this.state.uploadProgress };
-      copy[file.name] = { state: "done", percentage: 100 };
-      this.setState({ uploadProgress: copy });
-      resolve(req.response);
-     });
-      
-     req.upload.addEventListener("error", event => {
-      const copy = { ...this.state.uploadProgress };
-      copy[file.name] = { state: "error", percentage: 0 };
-      this.setState({ uploadProgress: copy });
-      reject(req.response);
-     });
-   
-     const formData = new FormData();
-     formData.append("file", file, file.name);
-   
-     req.open("POST", `https://6ebzytryjk.execute-api.us-east-1.amazonaws.com/Prod/api/file/${file.name}`);
-     req.send(formData);
-    });
+  async sendRequest(file) {
+    const response = await axios({
+      method: 'GET',
+      url: 'https://byn4po1z88.execute-api.us-east-1.amazonaws.com/Prod/'
+    })
+    console.log('Response: ', response.data)
+    console.log('Uploading: ', file)
+    let binary = atob(file.split(',')[1])
+    let array = []
+    for (var i = 0; i < binary.length; i++) {
+      array.push(binary.charCodeAt(i))
+    }
+    let blobData = new Blob([new Uint8Array(array)], {type: 'image/jpeg'})
+    console.log('Uploading to: ', response.data.uploadURL)
+    const result = await fetch(response.data.uploadURL, {
+      method: 'PUT',
+      body: blobData
+    })
+    console.log('Result: ', result)
+    // Final URL for the user doesn't need the query string params
+    this.uploadURL = response.data.uploadURL.split('?')[0]
    }
 
   render() {
