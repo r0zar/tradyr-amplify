@@ -87,13 +87,21 @@ export default class Upload extends Component {
   }
 
   async sendRequest(file) {
+
+    let reader = new FileReader()
+    reader.onload = (e) => {
+      console.log('length: ', e.target.result.includes('data:image/jpeg'))
+      this.image = e.target.result
+    }
+    reader.readAsDataURL(file)
+
     const response = await axios({
       method: 'GET',
       url: 'https://byn4po1z88.execute-api.us-east-1.amazonaws.com/Prod/'
     })
     console.log('Response: ', response.data)
-    console.log('Uploading: ', file)
-    let binary = atob(file.split(',')[1])
+    console.log('Uploading: ', this.image)
+    let binary = atob(this.image.split(',')[1])
     let array = []
     for (var i = 0; i < binary.length; i++) {
       array.push(binary.charCodeAt(i))
