@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Box } from 'grommet';
 import './Dropzone.css'
 
 export default class Dropzone extends Component {
@@ -63,19 +64,20 @@ export default class Dropzone extends Component {
 
   render() {
     return (
-      <div
+      <Box
         className={`Dropzone ${this.state.hightlight ? "Highlight" : ""}`}
         onDragOver={this.onDragOver}
         onDragLeave={this.onDragLeave}
         onDrop={this.onDrop}
         onClick={this.openFileDialog}
         style={{ cursor: this.props.disabled ? "default" : "pointer" }}
+        animation={{"type":"jiggle","size":"xlarge","delay":0,"duration":500000}}
       >
-        <img
+        {/* <img
           alt="upload"
           className="Icon"
           src="https://banner2.cleanpng.com/20180517/vtw/kisspng-pdf-computer-icons-encapsulated-postscript-logo-pdf-5afde5cc411bf7.3109834215265888762667.jpg"
-        />
+        /> */}
          <input
           ref={this.fileInputRef}
           className="FileInput"
@@ -83,7 +85,7 @@ export default class Dropzone extends Component {
           multiple
           onChange={this.onFilesAdded}
         />
-      </div>
+      </Box>
     );
   }
 }
