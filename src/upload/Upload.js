@@ -97,7 +97,7 @@ export default class Upload extends Component {
 
     const response = await axios({
       method: 'GET',
-      url: 'https://byn4po1z88.execute-api.us-east-1.amazonaws.com/Prod/'
+      url: 'https://ptqs4fj2lh.execute-api.us-east-1.amazonaws.com/Prod/'
     })
     console.log('Response: ', response.data)
     console.log('Uploading: ', this.image)

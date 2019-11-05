@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Box, Button, Collapsible, Heading, Grommet, Layer, ResponsiveContext } from 'grommet';
-import { FormClose, Notification } from 'grommet-icons';
 import Upload from './upload/Upload'
 
 const theme = {
@@ -23,19 +22,19 @@ window.extAsyncInit = function() {
   window.MessengerExtensions.isInExtension()
 };
 
-const AppBar = (props) => (
-  <Box
-    tag='header'
-    direction='row'
-    align='center'
-    justify='between'
-    background='brand'
-    pad={{ left: 'medium', right: 'small', vertical: 'small' }}
-    elevation='medium'
-    style={{ zIndex: '1' }}
-    {...props}
-  />
-);
+// const AppBar = (props) => (
+//   <Box
+//     tag='header'
+//     direction='row'
+//     align='center'
+//     justify='between'
+//     background='brand'
+//     pad={{ left: 'medium', right: 'small', vertical: 'small' }}
+//     elevation='medium'
+//     style={{ zIndex: '1' }}
+//     {...props}
+//   />
+// );
 
 class App extends Component {
   state = {
