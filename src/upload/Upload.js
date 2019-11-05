@@ -120,7 +120,6 @@ export default class Upload extends Component {
   render() {
     return (
       <div className="Upload">
-        {/* <span className="Title">Blur ticket barcodes</span> */}
         <div className="Content">
           <div>
             <Dropzone
